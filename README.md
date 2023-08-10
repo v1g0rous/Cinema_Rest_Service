@@ -125,6 +125,10 @@ This method returns Cinema Theatre statistics.
 |------------|----------|--------|-------------------------------------------------------------|
 | password   | yes      | String | **Query parameter**: total amount for all purchased tickets |
 
+#### Request example
+```html
+http://localhost:28852/stats?password=super_secret123124
+```
 
 #### Response
 | Field name                  | Required | Type    | Description                            |
