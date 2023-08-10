@@ -2,7 +2,7 @@
 <!-- TOC -->
 * [Table of contents](#table-of-contents)
 * [Cinema_Rest_Service](#cinema_rest_service)
-    * [Main Business Features:](#main-business-features-)
+    * [Main Business Features](#main-business-features)
     * [Installing](#installing)
     * [Run with IDE (__Intellij IDEA__)](#run-with-ide--__intellij-idea__-)
   * [Specification](#specification)
@@ -16,6 +16,7 @@
       * [URL](#url)
       * [Description](#description)
       * [Request](#request)
+      * [Request example](#request-example)
       * [Response](#response)
       * [Result codes](#result-codes)
       * [Response example](#response-example)
