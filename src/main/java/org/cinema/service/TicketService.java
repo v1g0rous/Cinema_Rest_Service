@@ -40,11 +40,7 @@ public class TicketService {
 
     @PostConstruct
     private CinemaTheater createCinemaTheater() {
-        cinemaTheater = new CinemaTheater(
-                9,
-                9,
-                initializeSeats()
-        );
+        cinemaTheater = new CinemaTheater(initializeSeats(), 9, 9);
         return cinemaTheater;
     }
 
@@ -53,7 +49,12 @@ public class TicketService {
 
         for (int i = MIN_CINEMA_ROW; i <= MAX_CINEMA_ROW; i++) {
             for (int j = MIN_CINEMA_COLUMN; j <= MAX_CINEMA_COLUMN; j++) {
-                Seat seat = new Seat(i, j, paymentService.getTicketPriceBySeatRow(i), Seat.STATUS.AVAILABLE);
+                Seat seat = Seat.builder()
+                        .row(i)
+                        .column(j)
+                        .price(paymentService.getTicketPriceBySeatRow(i))
+                        .status(Seat.STATUS.AVAILABLE).build();
+
                 seats.add(seat);
             }
         }

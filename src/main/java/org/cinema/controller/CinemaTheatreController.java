@@ -1,6 +1,7 @@
 package org.cinema.controller;
 
 
+import lombok.AllArgsConstructor;
 import org.cinema.api.request.PurchaseTicketRequest;
 import org.cinema.api.request.ReturnTicketRequest;
 import org.cinema.api.response.GetSeatsResponse;
@@ -16,15 +17,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@AllArgsConstructor
 @RestController
 public class CinemaTheatreController {
+    public static final int UNDEFINED_PRICE = 0;
     private TicketService ticketService;
     private PaymentService paymentService;
-
-    public CinemaTheatreController(TicketService ticketService, PaymentService paymentService) {
-        this.ticketService = ticketService;
-        this.paymentService = paymentService;
-    }
 
     @GetMapping("/seats")
     public ResponseEntity<Object>  getSeats() {
@@ -38,7 +36,12 @@ public class CinemaTheatreController {
 
     @PostMapping("/purchase")
     public ResponseEntity<Object> purchaseTicket(@RequestBody PurchaseTicketRequest request) {
-        Seat seat = new Seat(request.getRow(), request.getColumn());
+        Seat seat = Seat
+                .builder()
+                .row(request.getRow())
+                .column(request.getColumn())
+                .price(UNDEFINED_PRICE)
+                .build();
 
         if (!ticketService.seatExists(seat)) {
             throw new SeatBookingException("The number of a row or a column is out of bounds!");

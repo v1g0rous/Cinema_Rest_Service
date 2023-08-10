@@ -1,30 +1,14 @@
 package org.cinema.api.request;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class PurchaseTicketRequest {
     private int row;
     private int column;
-
-    public PurchaseTicketRequest(int row, int column) {
-        this.row = row;
-        this.column = column;
-    }
-
-    public PurchaseTicketRequest() {
-    }
-
-    public int getRow() {
-        return row;
-    }
-
-    public void setRow(int row) {
-        this.row = row;
-    }
-
-    public int getColumn() {
-        return column;
-    }
-
-    public void setColumn(int column) {
-        this.column = column;
-    }
 }
