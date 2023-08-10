@@ -1,0 +1,16 @@
+plugins {
+    id 'java'
+}
+
+group 'org.cinema'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter', version: '3.1.2'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '3.1.2'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '3.1.2'
+}
